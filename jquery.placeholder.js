@@ -99,9 +99,9 @@
 	if (!$.fn.placeholder.input || !$.fn.placeholder.textarea) {
 		$.fn.val = function() {
 			var ret = val.apply(this, arguments);
-			var elem = $(this[0]);
+			var elem = this.eq(0);
 			if (!arguments.length && elem.is('[placeholder]')) {
-				return (ret == elem.attr('placeholder')) ? '' : ret;
+				return elem.hasClass('placeholder') ? '' : ret;
 			} else {
 				return ret;
 			}
